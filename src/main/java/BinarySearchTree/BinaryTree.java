@@ -33,4 +33,21 @@ public class BinaryTree<K extends Comparable> {
 
 	}
 
+	public boolean searchNode(K key) {
+		BinaryTreeNode<K> tempNode = searchRecursive(rootNode, key);
+		return tempNode == null ? false : true;
+	}
+
+	public BinaryTreeNode<K> searchRecursive(BinaryTreeNode<K> currentNode, K key) {
+		if (currentNode == null)
+			return null;
+		else if (currentNode.getKey().compareTo(key) == 0)
+			return currentNode;
+		else if (currentNode.getKey().compareTo(key) < 0)
+			return searchRecursive(currentNode.right, key);
+		else
+			return searchRecursive(currentNode.left, key);
+
+	}
+
 }

@@ -18,13 +18,12 @@ public class BinaryTreeTest {
 		boolean result = size.equals(3);
 		Assert.assertTrue(result);
 	}
-	
+
 	@Test
 	public void addingAllNodesToBSTShouldPassTest() {
 		BinaryTree<Integer> binaryTree = new BinaryTree<>();
-        Integer[] nodes= {56,30,22,40,11,3,16,70,60,95,65,63,67};
-		for(Integer n : nodes)
-		{
+		Integer[] nodes = { 56, 30, 22, 40, 11, 3, 16, 70, 60, 95, 65, 63, 67 };
+		for (Integer n : nodes) {
 			binaryTree.add(n);
 		}
 
@@ -32,6 +31,21 @@ public class BinaryTreeTest {
 
 		boolean result = size.equals(13);
 		Assert.assertTrue(result);
+	}
+
+	@Test
+	public void searchingaNodeInBSTShouldPassTest() {
+		BinaryTree<Integer> binaryTree = new BinaryTree<>();
+		Integer[] nodes = { 56, 30, 22, 40, 11, 3, 16, 70, 60, 95, 65, 63, 67 };
+		for (Integer n : nodes) {
+			binaryTree.add(n);
+		}
+
+		Integer size = binaryTree.getSize();
+
+		boolean searchResult = binaryTree.searchNode(63);
+		boolean result = size.equals(13);
+		Assert.assertTrue(result && searchResult);
 	}
 
 }
